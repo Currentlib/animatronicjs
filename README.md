@@ -1,2 +1,2 @@
 # animatronicjs
-simple animations framework
+simple animations framework, made by stupid for stupid
