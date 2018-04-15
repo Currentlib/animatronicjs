@@ -1,0 +1,2 @@
+# animatronicjs
+simple animations framework
