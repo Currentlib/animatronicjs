@@ -82,7 +82,7 @@ function animate(element, type, duration, param) {
                 setTimeout(function() {
                     element.style.transition = '';
                 }, durms);
-            }, 50);
+            }, 5);
             break;
         case 'shake':
             element.style.transition = 'transform 0.05s';
@@ -114,7 +114,7 @@ function animate(element, type, duration, param) {
                 setTimeout(function() {
                     element.style.transition = '';
                 }, durms);
-            }, 50);
+            }, 5);
             break;
         case 'rotate':
             element.style.opacity = 0;
@@ -126,7 +126,7 @@ function animate(element, type, duration, param) {
                     element.style.transition = '';
                     element.style.transform  = 'rotate(' + 0 + 'deg)';
                 }, durms);
-            }, 50);
+            }, 5);
             break;
     }
 }
