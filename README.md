@@ -16,4 +16,7 @@ add attribute 'animate' to tag with animation name value. <br>
     <li>leftin</li>
 </ul>
 add attribute 'duration' to tag with duration value <br>
-(e.g. ```<img src='image.png' animation='opacity' duration='1s'>``` default: 0.5s);
+(e.g. ```
+<img src='image.png' animation='opacity' duration='1s'>
+``` 
+default: 0.5s);
