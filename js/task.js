@@ -97,10 +97,10 @@ function animate(element, type, duration, param) {
                 }
                 if (!shaked) {
                     shaked = true;
-                    element.style.transform = 'translateX(' + -20 + 'px)';
+                    element.style.transform = 'translateX(' + -5 + 'px)';
                 } else if (shaked) {
                     shaked = false;
-                    element.style.transform = 'translateX(' + 20 + 'px)';
+                    element.style.transform = 'translateX(' + 5 + 'px)';
                 }
             }, 50);
             break;

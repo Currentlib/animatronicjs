@@ -18,6 +18,7 @@ default: none)
     <li>opacity</li>
     <li>shake</li>
     <li>leftin</li>
+    <li>rotate</li>
 </ul>
 add attribute 'duration' to tag with duration value <br>
 (e.g. 
