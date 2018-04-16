@@ -9,17 +9,16 @@ let animationNodes = Nodes.map(function(item) {
         status: false
     };
 });
+
 function stats() {
     console.log(animationNodes);
 }
 
-window.onload = checking;
+checking();
 window.onscroll = checking;
 
 function checking() {
     let scrolled = window.pageYOffset || document.documentElement.scrollTop;
-    document.getElementById('counter').innerHTML = scrolled + 'px';
-
     animationNodes.reduce(function(prev, curr, i) {
         if (animationNodes[i].offsetTop < scrolled+document.documentElement.clientHeight && animationNodes[i].offsetTop+animationNodes[i].height > scrolled) {
             if (!animationNodes[i].status) {
@@ -61,23 +60,18 @@ function animate(element, type, duration) {
                 if (!shaked) {
                     shaked = true;
                     element.style.left = '100px';
-//                    console.log('shake1');
                 } else if (shaked) {
                     shaked = false;
                     element.style.left = '10px';
-//                    console.log('shake2');
                 }
             }, 50);
             break;
         case 'leftin':
             element.style.opacity = 0;
             let startpos = -getWidth(element);
-            console.log('startpos: ' + startpos);
             let startoff = getOffsetLeft(element);
-            console.log('startoff: ' + startoff);
             element.style.transform = 'translateX(' + (startpos-startoff) + 'px)';
             let offset = -(startpos-startoff);
-            console.log('offset: ' + offset);
             setTimeout(function() {
                 element.style.transition = 'transform ' + duration + ',' + 'opacity ' + duration;
                 element.style.transform  = 'translateX(' + 0 + 'px)';

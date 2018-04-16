@@ -18,6 +18,7 @@ img {
     border: 1px solid black;
     background-color: red;
     position: absolute;
+    font-size: 50px;
     top: 0;
     left: 0;
 }
@@ -25,22 +26,16 @@ img {
 .green {
     height: 100px;
     background-color: green;
-    opacity: 1;
-    transition: opacity 1s;
 }
 
 .red {
     height: 750px;
     background-color: red;
-    opacity: 1;
-    transition: opacity 1s;
 }
 
 #yellow {
     height: 700px;
     background-color: yellow;
-    opacity: 1;
-    transition: opacity 1s;
 }
 #counter {
     position: fixed;
@@ -48,20 +43,14 @@ img {
 .orange {
     height: 700px;
     background-color: orange;
-    opacity: 1;
-    transition: opacity 1s;
 }
 
 .purple {
     height: 700px;
     background-color: purple;
-/*    opacity: 1;*/
-/*    transition: opacity 1s;*/
 }
 
 #blue {
     height: 700px;
     background-color: blue;
-    opacity: 1;
-    transition: opacity 1s;
 }
