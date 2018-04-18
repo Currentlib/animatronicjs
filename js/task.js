@@ -1,4 +1,8 @@
-let animationNodes = getElementsByAttribute('animation');
+let animationNodes = getElementsByAttribute('panima');
+
+onloadHide();
+window.onload = checking;
+window.onscroll = checking;
 
 function getElementsByAttribute(attr) {
     let matchElements = [];
@@ -12,7 +16,8 @@ function getElementsByAttribute(attr) {
         return {
             element: item,
             param: getParameters(item),
-            type: item.getAttribute('animation'),
+            type: item.getAttribute('panima'),
+            spliter: spliter(item.getAttribute('panima')),
             duration: item.getAttribute('duration'),
             status: false
         }
@@ -20,23 +25,33 @@ function getElementsByAttribute(attr) {
     return matchElements;
 }
 
-function stats() {
-    console.log(animationNodes);
+
+function spliter(x) {
+    return x.split(' ');
 }
 
-checking();
-window.onscroll = checking;
+function stats() {
+    console.log(animationNodes);
+//    spliter();
+}
+
+function onloadHide() {
+    animationNodes.map(function(item, i) {
+        startPos(animationNodes[i].element, animationNodes[i].type, animationNodes[i].param);
+    }, 0);
+}
 
 function checking() {
     let scrolled = window.pageYOffset || document.documentElement.scrollTop;
     animationNodes.reduce(function(prev, curr, i) {
         if (animationNodes[i].param.offsetTop < scrolled+document.documentElement.clientHeight && animationNodes[i].param.offsetTop+animationNodes[i].param.height > scrolled) {
             if (!animationNodes[i].status) {
-                animate(animationNodes[i].element, animationNodes[i].type, animationNodes[i].duration, animationNodes[i].param);
+                animate(animationNodes[i].element, animationNodes[i].type, animationNodes[i].duration, animationNodes[i].param, animationNodes[i].status);
+                animationNodes[i].status = true;
             }
-            animationNodes[i].status = true;
         }
         else {
+            startPos(animationNodes[i].element, animationNodes[i].type, animationNodes[i].param);
             animationNodes[i].status = false;
         }
     }, 0);
@@ -60,73 +75,4 @@ function getParameters(elem) {
         offsetTop: Math.round(top),
         offsetLeft: Math.round(left)
     };
-}
-
-function animate(element, type, duration, param) {
-    if (duration === null) {
-        duration = '0.5s';
-    }
-    let durms = '';
-    if (typeof(duration) !== 'number') {
-        for (let i=0; i<duration.length-1; i++) {
-            durms+=duration[i];
-        }
-        durms*=1000;
-    }
-    switch(type) {
-        case 'opacity':
-            element.style.opacity = 0;
-            setTimeout(function() {
-                element.style.transition = 'opacity ' + duration;
-                element.style.opacity = 1;
-                setTimeout(function() {
-                    element.style.transition = '';
-                }, durms);
-            }, 5);
-            break;
-        case 'shake':
-            element.style.transition = 'transform 0.05s';
-            let start = Date.now();
-            let shaked = false;
-            let timer = setInterval(function() {
-                let timePassed = Date.now() - start;
-                if (timePassed >= durms) {
-                    clearInterval(timer);
-                    element.style.transform = 'translateX(' + 0 + 'px)';
-                    return;
-                }
-                if (!shaked) {
-                    shaked = true;
-                    element.style.transform = 'translateX(' + -5 + 'px)';
-                } else if (shaked) {
-                    shaked = false;
-                    element.style.transform = 'translateX(' + 5 + 'px)';
-                }
-            }, 50);
-            break;
-        case 'leftin':
-            element.style.opacity = 0;
-            element.style.transform = 'translateX(' + (-(param.width)-param.offsetLeft) + 'px)';
-            setTimeout(function() {
-                element.style.transition = 'transform ' + duration + ',' + 'opacity ' + duration;
-                element.style.transform  = 'translateX(' + 0 + 'px)';
-                element.style.opacity = 1;
-                setTimeout(function() {
-                    element.style.transition = '';
-                }, durms);
-            }, 5);
-            break;
-        case 'rotate':
-            element.style.opacity = 0;
-            setTimeout(function() {
-                element.style.transition = 'transform ' + duration + ',' + 'opacity ' + duration;
-                element.style.transform  = 'rotate(' + 360 + 'deg)';
-                element.style.opacity = 1;
-                setTimeout(function() {
-                    element.style.transition = '';
-                    element.style.transform  = 'rotate(' + 0 + 'deg)';
-                }, durms);
-            }, 5);
-            break;
-    }
 }
