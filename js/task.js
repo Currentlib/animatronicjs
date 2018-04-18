@@ -13,26 +13,21 @@ function getElementsByAttribute(attr) {
         };
     };
     matchElements = matchElements.map(function(item, i) {
+        let split = (item.getAttribute('panima')).split(' ');
         return {
             element: item,
             param: getParameters(item),
-            type: item.getAttribute('panima'),
-            spliter: spliter(item.getAttribute('panima')),
-            duration: item.getAttribute('duration'),
+            type: split[0],
+            duration: split[1] || '0.5s',
+            timing: split[2] || 'linear',
             status: false
         }
     }, 0);
     return matchElements;
 }
 
-
-function spliter(x) {
-    return x.split(' ');
-}
-
 function stats() {
     console.log(animationNodes);
-//    spliter();
 }
 
 function onloadHide() {
@@ -46,7 +41,7 @@ function checking() {
     animationNodes.reduce(function(prev, curr, i) {
         if (animationNodes[i].param.offsetTop < scrolled+document.documentElement.clientHeight && animationNodes[i].param.offsetTop+animationNodes[i].param.height > scrolled) {
             if (!animationNodes[i].status) {
-                animate(animationNodes[i].element, animationNodes[i].type, animationNodes[i].duration, animationNodes[i].param, animationNodes[i].status);
+                animate(animationNodes[i].element, animationNodes[i].type, animationNodes[i].duration, animationNodes[i].param, animationNodes[i].status, animationNodes[i].timing);
                 animationNodes[i].status = true;
             }
         }

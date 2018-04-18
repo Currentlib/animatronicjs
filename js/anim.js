@@ -18,7 +18,7 @@ function startPos(element, type, param) {
 }
 
 
-function animate(element, type, duration, param, status) {
+function animate(element, type, duration, param, status, timing) {
     if (duration === null) {
         duration = '0.5s';
     }
@@ -32,8 +32,8 @@ function animate(element, type, duration, param, status) {
     if (!status) {
         switch(type) {
             case 'opacity':
-                startPos(element, type, param);
                 element.style.transition = 'opacity ' + duration;
+                element.style.transitionTimingFunction = timing;
                 element.style.opacity = 1;
                 break;
             case 'shake':
@@ -57,7 +57,7 @@ function animate(element, type, duration, param, status) {
                 }, 50);
                 break;
             case 'leftin':
-                    element.style.transition = 'transform ' + duration + ',' + 'opacity ' + duration;
+                    element.style.transition = 'transform ' + timing + ' ' + duration + ',' + 'opacity ' + duration;
                     element.style.transform  = 'translateX(' + 0 + 'px)';
                     element.style.opacity = 1;
                 break;
