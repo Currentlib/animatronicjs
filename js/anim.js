@@ -33,7 +33,6 @@ function animate(element, type, duration, param, status, timing) {
         switch(type) {
             case 'opacity':
                 element.style.transition = 'opacity ' + duration;
-                element.style.transitionTimingFunction = timing;
                 element.style.opacity = 1;
                 break;
             case 'shake':
@@ -57,7 +56,7 @@ function animate(element, type, duration, param, status, timing) {
                 }, 50);
                 break;
             case 'leftin':
-                    element.style.transition = 'transform ' + timing + ' ' + duration + ',' + 'opacity ' + duration;
+                    element.style.transition = 'transform ' + duration + ',' + 'opacity ' + duration;
                     element.style.transform  = 'translateX(' + 0 + 'px)';
                     element.style.opacity = 1;
                 break;
@@ -68,5 +67,6 @@ function animate(element, type, duration, param, status, timing) {
                 break;
             default: console.log('error: bad anim name');
         }
+        element.style.transitionTimingFunction = timing;
     }
 }
