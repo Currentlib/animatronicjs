@@ -22,7 +22,11 @@ where: <br>
     <li>opacity</li>
     <li>shake</li>
     <li>leftin</li>
+    <li>topin</li>
+    <li>botin</li>
+    <li>righttin</li>
     <li>rotate</li>
+    <li>fadein</li>
 </ul>
 
 Example: <br>
