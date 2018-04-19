@@ -1,5 +1,5 @@
-# animatronicjs
-simple animations framework, made by stupid for stupid
+# panima
+simple animations library, made by stupid for stupid
 
 <br>
 <a href='https://animatronic.000webhostapp.com/'>DEMO</a>
