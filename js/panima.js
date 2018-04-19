@@ -1,14 +1,14 @@
-let animationNodes = getElementsByAttribute('panima');
+let animationNodes = getElementsByAttribute();
 
 onloadHide();
 window.onload = checking;
 window.onscroll = checking;
 
-function getElementsByAttribute(attr) {
+function getElementsByAttribute() {
     let matchElements = [];
     let allElements = document.getElementsByTagName('*');
     for (let i=0; i<allElements.length; i++) {
-        if (allElements[i].getAttribute(attr) !== null) {
+        if (allElements[i].getAttribute('panima') !== null) {
             matchElements.push(allElements[i]);
         };
     };
@@ -17,7 +17,7 @@ function getElementsByAttribute(attr) {
         return {
             element: item,
             param: getParameters(item),
-            type: split[0],
+            type: split[0] || 'leftin',
             duration: split[1] || '0.5s',
             timing: split[2] || 'linear',
             status: false
