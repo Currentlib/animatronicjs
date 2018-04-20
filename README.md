@@ -1,6 +1,19 @@
 # panima
 simple animations library
 
+## Built with
+
+- vanilla JS
+
+## Installing
+
+1. Add animations file(anima.js) and script file (panima.js) in end of your page
+```
+    <script src="js/anim.js" type="text/javascript"></script>
+    <script src="js/panima.js" type="text/javascript"></script>
+</body>
+```
+
 <span style="background-color: red;">warning</span>
 
 <br>
