@@ -1,5 +1,7 @@
 # panima
-simple animations library, made by stupid for stupid
+simple animations library
+
+<span style="background-color: red;">warning</span>
 
 <br>
 <a href='https://animatronic.000webhostapp.com/'>DEMO</a>
