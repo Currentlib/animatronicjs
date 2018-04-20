@@ -13,7 +13,7 @@ simple animations library
     <script src="js/panima.js" type="text/javascript"></script>
 </body>
 ```
-
+ 
 <span style="background-color: red;">warning</span>
 
 <br>
