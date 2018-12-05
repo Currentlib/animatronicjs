@@ -16,10 +16,6 @@ simple animations library
  
 <span style="background-color: red;">warning</span>
 
-<br>
-<a href='https://animatronic.000webhostapp.com/'>DEMO</a>
-<br>
-
 -instruction-
 
 add attribute 'panima' to tag with animation property's. <br>
