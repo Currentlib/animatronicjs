@@ -7,7 +7,7 @@ simple animations library
 
 ## Installing
 
-1. Add animations file(anima.js) and script file (panima.js) in end of your page
+1. Add animations file(anima.js) and script file (panima.js) in <b>end of your page</b>
 ```
     <script src="js/anim.js" type="text/javascript"></script>
     <script src="js/panima.js" type="text/javascript"></script>
